@@ -13,8 +13,12 @@ function buildMainCharacter(name, age, pronouns) {
 }
 
 function saveReview(criticReviews, allReviews) {
+  allReviews = []
   allReviews.push(criticReviews)
+ return allReviews
+
 }
+ 
 
 
 module.exports = {
