@@ -26,17 +26,16 @@ function listTitles(shelf){
   for (i = 0; i <shelf.length; i++){
     list.push(shelf[i].title)
   }
-  var titles = `${list[0]}, ${list[1]}, ${list[2]}`
-  return titles 
+  var titles = list.join(", ")
+  return titles
 } 
 
 
 function searchShelf(shelf, bookTitle){
       for (i = 0; i < shelf.length; i++){
-        if (shelf[i].title === bookTitle)
-        return true 
-      else {
-        return false
+        if (shelf[i].title.includes(bookTitle)){
+          return true 
+        }
       }
-      }
-}
+      return false
+    }
