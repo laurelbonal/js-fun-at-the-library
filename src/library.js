@@ -20,18 +20,28 @@ function createLibrary(libraryName){
 }
 
 
-function addBook(libraryName, bookName){
-     libraryName.shelves[bookName.genre].push(bookName) 
-
-    // for (i = 0; i < libraryName.shelves.length; i++){
-    //   if (libraryName.shelves.includes(bookName.genre)){
-    //     libraryName.shelves[i].push(bookName)
-    //   }
-    // }
-    // return libraryName.shelves
-    // console.log("sanity check", libraryName.shelves[0])
+function addBook(libraryName, book){
+     libraryName.shelves[book.genre].push(book) 
 }
 
-function checkoutBook(){
+function checkoutBook(libraryName, book){
+  // if book title is on shelf
+  // if title is on shelf, find index
+  // remove index of book on shelf
   
-}
+ 
+      for (i = 0; i < libraryName.shelves.length; i++){
+        var stuff = libraryName.shelves.find(o => o.genre[book] === book)
+    //     for (x = 0; x < i.length; x++){
+    //       x.
+    //     }
+    //     if (libraryName.shelves[i].find(o => o.book === book)){
+    //       var bookIndex = libraryName.shelves[i].indexOf(book)
+    //       libraryName.shelves[book.genre].splice(bookIndex, 1)
+    //       return `You have now checked out ${book} from the ${libraryName}.`
+    //     }
+    //   }
+    //   return "sorry we dont have that book right now"
+    }
+
+  
