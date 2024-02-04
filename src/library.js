@@ -4,7 +4,7 @@ module.exports = {
   createLibrary,
   addBook,
   checkoutBook,
-  // takeStock
+  takeStock
 };
 
 function createLibrary(libraryName){
@@ -24,24 +24,26 @@ function addBook(libraryName, book){
      libraryName.shelves[book.genre].push(book) 
 }
 
-function checkoutBook(libraryName, book){
-  // if book title is on shelf
-  // if title is on shelf, find index
-  // remove index of book on shelf
-  
- 
-      for (i = 0; i < libraryName.shelves.length; i++){
-        var stuff = libraryName.shelves.find(o => o.genre[book] === book)
-    //     for (x = 0; x < i.length; x++){
-    //       x.
-    //     }
-    //     if (libraryName.shelves[i].find(o => o.book === book)){
-    //       var bookIndex = libraryName.shelves[i].indexOf(book)
-    //       libraryName.shelves[book.genre].splice(bookIndex, 1)
-    //       return `You have now checked out ${book} from the ${libraryName}.`
-    //     }
-    //   }
-    //   return "sorry we dont have that book right now"
+function checkoutBook(libraryName, book, genre){
+      for (i = 0; i < libraryName.shelves[genre].length; i++){
+        var title = libraryName.shelves[genre][i].title
+        if (title === book) {
+          library.shelves[genre].splice(i, 1);
+      } 
+        return `You have now checked out ${book} from the ${libraryName.name}.`
+      }
+      return `Sorry, there are currently no copies of ${book} available at the ${libraryName.name}.`
     }
 
+
+    function takeStock(libraryName, genre){
+      if (genre === undefined){
+        return `There are a total of ${Object.values(libraryName.shelves).length} books at the ${libraryName.name}.`
+      }
+      var shelfStock = 0
+      for (i = 0; i < libraryName.shelves[genre].length; i++){
+        shelfStock += libraryName.shelves[genre].length
+        return `There are a total of ${shelfStock} ${genre} books at the ${libraryName.name}.`
+      }
+    }
   
