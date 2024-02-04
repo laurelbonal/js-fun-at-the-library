@@ -39,7 +39,10 @@ function checkoutBook(libraryName, book, genre){
     function takeStock(libraryName, genre){
       if (genre === undefined){
         var allBooks = 0
-        allBooks += Object.values(libraryName.shelves).length
+        var arrayValues = Object.values(libraryName.shelves);
+    for (let i = 0; i < arrayValues.length; i++) {
+      allBooks += arrayValues[i].length;
+    }
         return `There are a total of ${allBooks} books at the ${libraryName.name}.`
       }
       var shelfStock = 0
